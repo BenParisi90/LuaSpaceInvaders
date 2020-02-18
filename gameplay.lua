@@ -12,7 +12,7 @@ player = {
 function loadGameplay()
     projectiles = {}
     enemies = {}
-    createEnemy(500, 500)
+    createEnemyGrid()
 end
 
 function keypressedGameplay(key, scancode, isrepeat)
