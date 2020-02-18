@@ -59,8 +59,11 @@ function updateGameplay(dt)
 				table.remove(projectiles, projIndex)
 				-- Break out of the loop and move on to the next projectile
                 break
-			end
-		end
+            end
+        end
+        if proj.y < 0 then
+            table.remove(projectiles, projIndex)
+        end
 	end
 end
 
