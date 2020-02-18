@@ -3,6 +3,7 @@ function keypressedTitleScreen()
     love.update = updateGameplay
     love.keypressed = keypressedGameplay
     love.keyreleased = keyreleasedGameplay
+    loadGameplay()
 end
 
 function drawTitleScreen()
