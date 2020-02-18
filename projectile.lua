@@ -1,17 +1,17 @@
 function createProjectile()
 	local newProjectile = {
 		x = player.x + player.width / 2,
-		y = player.y,
+        y = player.y,
+        w = 2,
+        h = 4,
         speed = 150,
 	}
-
+    table.insert(projectiles, newProjectile)
 	return newProjectile
 end
 
 function drawProjectile(proj)
-      -- Scaling the projectile up by 2x
-
-      love.graphics.rectangle('fill', proj.x, proj.y, 2, 4)
+      love.graphics.rectangle('fill', proj.x, proj.y, proj.w, proj.h)
 end
 
 function updateProjectile(proj, dt)
