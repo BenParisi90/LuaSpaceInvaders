@@ -2,14 +2,23 @@ keyPressLeft = false
 keyPressRight = false
 
 player = {
-    width = 40,
-    height = 20,
+    width = 220,
+    height = 220,
+    scale = .5,
     x = love.graphics.getWidth() * .5,
-    y = love.graphics.getHeight() * .95,
+    y = love.graphics.getHeight() * .9,
     speed = 5
 }
 
 function loadGameplay()
+
+    playerShips = love.graphics.newImage('Assets/Player.png')
+	-- The : operator means "get the dimensions of the 'ships' Image"
+      -- Also, Lua can return multiple arguments.  Neato!
+	playerShipsWidth, playerShipsHeight = playerShips:getDimensions()
+
+    playerQuad = love.graphics.newQuad(0, 0, player.width, player.height, playerShipsWidth, playerShipsHeight)
+    
     projectiles = {}
     enemies = {}
     createEnemyGrid()
@@ -68,8 +77,8 @@ function updateGameplay(dt)
 end
 
 function drawGameplay()
-    love.graphics.rectangle('fill', player.x, player.y, player.width, player.height)     
-
+    --love.graphics.rectangle('fill', player.x, player.y, player.width, player.height)     
+    love.graphics.draw(playerShips, playerQuad, player.x, player.y, 0, player.scale, player.scale, player.width * player.scale, player.height * player.scale)
     for index, proj in ipairs(projectiles) do
 		drawProjectile(proj)
     end

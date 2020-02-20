@@ -1,10 +1,10 @@
 function createProjectile()
 	local newProjectile = {
-		x = player.x + player.width / 2,
-        y = player.y,
-        w = 2,
-        h = 4,
-        speed = 150,
+	      x = player.x,
+            y = player.y,
+            w = 2,
+            h = 4,
+            speed = 150,
 	}
     table.insert(projectiles, newProjectile)
 	return newProjectile
