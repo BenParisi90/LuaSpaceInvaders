@@ -7,6 +7,8 @@ function createProjectile()
             speed = 150,
 	}
     table.insert(projectiles, newProjectile)
+    shootSound:stop()
+    shootSound:play()
 	return newProjectile
 end
 
